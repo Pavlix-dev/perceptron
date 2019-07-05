@@ -36,6 +36,10 @@ class Perceptron
         }
     }
 
+	/**
+	 * @param array $xVector
+	 * @return int
+	 */
     public function guess(array $xVector): int
     {
         //normalize array keys
@@ -53,6 +57,10 @@ class Perceptron
     }
 
 
+	/**
+	 * @param array $xVector
+	 * @param $result
+	 */
     public function train(array $xVector, $result): void
     {
         //count guess of perceptron
@@ -84,6 +92,11 @@ class Perceptron
     }
 
 
+	/**
+	 * Check, if vector has valid length and if items of vector has valid data types
+	 *
+	 * @param array $xVector
+	 */
     private function validateVector(array $xVector): void
     {
         // check, if vector has right length
