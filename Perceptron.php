@@ -1,5 +1,8 @@
 <?php
 
+namespace Pavlix\Perceptron;
+
+use InvalidArgumentException;
 
 class Perceptron
 {
@@ -17,6 +20,11 @@ class Perceptron
      * @var array
      */
     private $weights;
+
+    /**
+     * @var float
+     */
+    private $learningCoeficient = 0.1;
 
     public function __construct(int $length)
     {
@@ -42,6 +50,21 @@ class Perceptron
         }
 
         return $this->sign($sum);
+    }
+
+
+    public function train(array $xVector, $result): void
+    {
+        //count guess of perceptron
+        $guess = $this->guess($xVector);
+
+        $error = $result - $guess;
+
+        //weights modification
+        foreach ($this->weights as $key => &$weight){
+            $weight += $xVector[$key] * $error * $this->learningCoeficient;
+        }
+        unset($weight);
     }
 
 
