@@ -2,7 +2,6 @@
 	"name": "pavlix/perceptron",
 	"description": "PHP implementation of perceptron",
 	"require": {
-		"php": "^7.2",
-		"another-vendor/package": "1.*"
+		"php": "^7.2"
 	}
 }
